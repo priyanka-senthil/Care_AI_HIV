@@ -1,0 +1,34 @@
+# Trusted public sources for the CareAI knowledge base.
+# Only U.S. government health sites are used, so every answer can be traced to verified content.
+# Add or remove pages here, then run: python scripts/build_index.py
+# Pages that fail to download are skipped and listed in the build log.
+
+sources:
+  # CDC - HIV basics and living with HIV
+  - {publisher: CDC, topic: basics, url: "https://www.cdc.gov/hiv/basics/whatishiv.html"}
+  - {publisher: CDC, topic: transmission, url: "https://www.cdc.gov/hiv/basics/transmission.html"}
+  - {publisher: CDC, topic: prevention, url: "https://www.cdc.gov/hiv/basics/prevention.html"}
+  - {publisher: CDC, topic: testing, url: "https://www.cdc.gov/hiv/basics/testing.html"}
+  - {publisher: CDC, topic: pep, url: "https://www.cdc.gov/hiv/basics/pep.html"}
+  - {publisher: CDC, topic: living-with-hiv, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/index.html"}
+  - {publisher: CDC, topic: newly-diagnosed, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/newly-diagnosed.html"}
+  - {publisher: CDC, topic: care, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/understanding-care.html"}
+  - {publisher: CDC, topic: treatment, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/treatment.html"}
+  - {publisher: CDC, topic: opportunistic-infections, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/opportunisticinfections.html"}
+  - {publisher: CDC, topic: disclosure, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/telling-others.html"}
+  - {publisher: CDC, topic: protecting-others, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/protecting-others.html"}
+  - {publisher: CDC, topic: stigma, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/stigma-discrimination.html"}
+  - {publisher: CDC, topic: mental-health, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/mental-health.html"}
+  - {publisher: CDC, topic: family-planning, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/family-planning.html"}
+  - {publisher: CDC, topic: healthy-living, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/healthy-living.html"}
+  - {publisher: CDC, topic: travel, url: "https://www.cdc.gov/hiv/basics/livingwithhiv/travel.html"}
+
+  # HIV.gov
+  - {publisher: HIV.gov, topic: living-with-hiv, url: "https://www.hiv.gov/hiv-basics/hiv-testing/just-diagnosed-whats-next/living-with-hiv"}
+
+  # NIH HIVinfo
+  - {publisher: NIH HIVinfo, topic: living-with-hiv, url: "https://hivinfo.nih.gov/understanding-hiv/infographics/living-hiv-steps-better-health"}
+  - {publisher: NIH HIVinfo, topic: care-team, url: "https://hivinfo.nih.gov/understanding-hiv/infographics/staying-healthy-hiv-your-care-circle"}
+
+  # MedlinePlus (NIH National Library of Medicine)
+  - {publisher: MedlinePlus, topic: overview, url: "https://medlineplus.gov/hiv.html"}

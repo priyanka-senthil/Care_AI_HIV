@@ -1,0 +1,36 @@
+# CareAI configuration
+# Values here can be overridden by environment variables (see .env.example).
+
+gcp:
+  project: ${GOOGLE_CLOUD_PROJECT}
+  location: ${GOOGLE_CLOUD_LOCATION:-us-central1}
+
+models:
+  # Main answer model (orchestration and grounded generation)
+  generator: gemini-2.5-pro
+  # Fast model for routing, triage and the grounding check
+  router: gemini-2.5-flash
+  # Embedding model for the RAG index
+  embedding: text-embedding-005
+  # Set this to the tuned model endpoint after the Vertex AI tuning job finishes.
+  # Example: projects/123/locations/us-central1/endpoints/456
+  # When empty, the base generator model is used.
+  tuned_generator: ${CAREAI_TUNED_MODEL:-}
+
+rag:
+  chunk_size_words: 220
+  chunk_overlap_words: 40
+  top_k: 5
+  # Chunks with a cosine similarity below this value are not used as evidence
+  min_score: 0.35
+  index_dir: data/index
+
+tuning:
+  base_model: gemini-2.5-flash
+  epochs: 4
+  learning_rate_multiplier: 1.0
+  display_name: careai-hiv-tuned
+
+safety:
+  # Run a second model call that checks every answer against the retrieved evidence
+  grounding_check: true
