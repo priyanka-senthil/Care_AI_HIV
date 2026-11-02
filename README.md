@@ -9,31 +9,7 @@ Vertex AI, and a fine-tuned Gemini model.
 ---
 
 ## Architecture Diagram
-
-```mermaid
-flowchart TD
-    U[Patient question in Streamlit chat] --> T{1. Triage<br/>rules + Gemini Flash}
-    T -- emergency --> E[Fixed reply: call 911]
-    T -- crisis --> C[Fixed reply: call or text 988]
-    T -- routine or urgent --> R{2. Router<br/>Gemini Flash}
-    R -- out of scope --> O[Polite redirect to HIV topics]
-    R -- hiv_information / medication /<br/>emotional_support / care_navigation --> Q[3. Retriever<br/>embeddings + keyword score]
-    KB[(Vector index<br/>CDC, NIH, HIV.gov, MedlinePlus)] --> Q
-    Q -- no chunk above threshold --> N[Reply: ask your care team]
-    Q -- top chunks --> G[4. Specialist generator<br/>tuned Gemini or Gemini 2.5 Pro]
-    G --> S{5. Safety check<br/>citation rules + grounding check}
-    S -- fails --> G2[Regenerate once with stricter instruction]
-    G2 --> S2{Check again}
-    S2 -- fails --> N
-    S2 -- passes --> A
-    S -- passes --> A[6. Add urgent note if needed]
-    A --> F[Answer with numbered citations]
-
-    subgraph Offline pipelines
-      W[Trusted web pages] --> I[Clean, chunk, embed] --> KB
-      KB --> D[Build tuning dataset] --> V[Vertex AI supervised tuning] --> G
-    end
-```
+<img width="1302" height="521" alt="image" src="https://github.com/user-attachments/assets/a03a181e-e1c5-4dfa-96cb-8921c9b6d584" />
 
 ---
 
